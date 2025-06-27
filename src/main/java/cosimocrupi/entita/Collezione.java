@@ -24,8 +24,6 @@ public class Collezione {
         Scanner scanner =new Scanner(System.in);
         System.out.println("Ciao! Benvenuto nel gestore dell'aggiunta di un gioco!");
         int ris = 0;
-        int counterV=0;
-        int counterT=0;
         do {
             System.out.println("Che gioco vorresti aggiungere? Videogioco(1) o Gioco Da tavola(2). 0 per terminare.");
             ris=Integer.parseInt(scanner.nextLine());
@@ -115,6 +113,38 @@ public class Collezione {
         giochi.remove(Id);
     }
     public void aggiornamentoElmento(int Id){
-        System.out.println("Cosa vuoi cambiare tra Titolo, ");
+        Scanner scanner= new Scanner(System.in);
+        int ris=0;
+        do {
+            System.out.println("Cosa vuoi cambiare tra Titolo(1), Anno(2), Prezzo(3). 0 per uscire");
+            ris= Integer.parseInt(scanner.nextLine());
+            if (ris>=1 & ris<=3) {
+                switch (ris) {
+                    case 1:
+                        System.out.println("Inserisci il titolo");
+                        String titolo = scanner.nextLine();
+                        giochi.get(Id).setTitolo(titolo);
+                        break;
+                    case 2:
+                        System.out.println("Inserisci l'anno");
+                        int anno = Integer.parseInt(scanner.nextLine());
+                        giochi.get(Id).setAnnoProd(anno);
+                        break;
+                    case 3:
+                        System.out.println("Inserisci il prezzo");
+                        double prezzo = Double.parseDouble(scanner.nextLine());
+                        giochi.get(Id).setPrezzo(prezzo);
+                        break;
+                    default:
+                        System.out.println("DEFAULT");
+                        break;
+                }
+            }else{
+                System.out.println("Fuori numero! Riprova");
+                aggiornamentoElmento(Id);
+            }
+        }while (ris!=0);
+
+
     }
 }
