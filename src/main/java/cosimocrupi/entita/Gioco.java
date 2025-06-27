@@ -25,7 +25,7 @@ public Gioco(int idGioco, String titolo,int annoProd, double prezzo){
         return annoProd;
     }
 
-    public int getPrezzo() {
+    public double getPrezzo() {
         return prezzo;
     }
 
