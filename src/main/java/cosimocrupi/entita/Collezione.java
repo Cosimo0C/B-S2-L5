@@ -6,11 +6,11 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 public class Collezione {
-
     Videogioco v1= new Videogioco(112, "God of war", 2012, 50, "PS3", 50, Genere.AZIONE);
     Videogioco v2= new Videogioco(113, "Uncharted", 2014, 55, "PS4", 150, Genere.AVVENTURA);
     GiocoTavola g1= new GiocoTavola(211, "Monopoli", 2000, 25, 6, 60);
     GiocoTavola g2= new GiocoTavola(212, "Uno", 2005, 15, 4, 60);
+    ExceptionIdSame exc= new ExceptionIdSame();
     public Map<Integer, Gioco> giochi=new HashMap<>();
     {
         giochi.put(v1.idGioco, v1);
@@ -37,7 +37,7 @@ public class Collezione {
                     if (idGioco>=0){
                         for (int i = 0; i < giochi.size(); i++) {
                             if (idGioco==giochi.get(i).idGioco){
-                                throw new ExceptionIdSame();
+                               exc.getMessage();
                             }
                         }
                     }
@@ -150,9 +150,9 @@ public class Collezione {
         }while (ris!=0);
     }
     public void statistica (){
-        OptionalInt prezzoalto= giochi.values().stream().mapToInt(Gioco::getPrezzo).max();
+        OptionalDouble prezzoalto= giochi.values().stream().mapToDouble(Gioco::getPrezzo).max();
         System.out.println(prezzoalto);
-        double mediaPrezzi = giochi.values().stream().collect(Collectors.averagingInt(Gioco::getPrezzo));
+        double mediaPrezzi = giochi.values().stream().collect(Collectors.averagingDouble(Gioco::getPrezzo));
         System.out.println("La media dei prezzi è "+mediaPrezzi);
         IntSummaryStatistics stat= giochi.values().stream().mapToInt(Gioco::getIdGioco).summaryStatistics();
         System.out.println(stat);

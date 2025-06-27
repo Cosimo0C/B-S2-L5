@@ -13,5 +13,6 @@ public class Application {
         Collezione collezione=new Collezione();
         Scanner scanner=new Scanner(System.in);
         System.out.println("Ciao! Benvenuto nel gestore generale!");
+        System.out.println("Scegli tra: L'aggiunta ");
     }
 }
