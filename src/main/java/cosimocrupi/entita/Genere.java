@@ -1,5 +1,5 @@
 package cosimocrupi.entita;
 
 public enum Genere {
-AZIONE, AVVENTURA, SPORT, SPARATUTTO, SIMULATORI
+AZIONE, AVVENTURA, SPORT, SPARATUTTO, NULL
 }
