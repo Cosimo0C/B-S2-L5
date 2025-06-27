@@ -18,6 +18,11 @@ public class Collezione {
         giochi.put(g1.idGioco, g1);
         giochi.put(g2.idGioco, g2);
     }
+    public List<GiocoTavola> giochiT=new ArrayList<>();
+    {
+        giochiT.add(g1);
+        giochiT.add(g2);
+    }
     public void addElemento(){
         Scanner scanner =new Scanner(System.in);
         System.out.println("Ciao! Benvenuto nel gestore dell'aggiunta di un gioco!");
@@ -88,6 +93,7 @@ public class Collezione {
                     int minuti=Integer.parseInt(scanner.nextLine());
                     GiocoTavola nome= new GiocoTavola(idGioco, titolo, annoProd, prezzo, giocatori, minuti);
                     giochi.put(nome.idGioco, nome);
+                    giochiT.add(nome);
                 }
             } else if (ris==0) {
                 System.out.println("Grazie! Arrivederci!");
@@ -104,8 +110,8 @@ public class Collezione {
     public List<Gioco> prezzoRicerca(int prezzo){
         return giochi.values().stream().filter(gioco -> gioco.prezzo< prezzo).toList();
     }
-    public List<Gioco> giocatoriRicerca(int numero){
-        return giochi.values().stream().filter(gioco -> gioco.prezzo<numero).toList();
+    public List<GiocoTavola> giocatoriRicerca(int numero){
+        return giochiT.stream().filter(gioco -> gioco.giocatori==numero).toList();
     }
     public void eliminaId(int Id){
         giochi.remove(Id);
