@@ -148,6 +148,7 @@ public class Collezione {
         System.out.println(prezzoalto);
         double mediaPrezzi = giochi.values().stream().collect(Collectors.averagingInt(Gioco::getPrezzo));
         System.out.println("La media dei prezzi è "+mediaPrezzi);
-
+        IntSummaryStatistics stat= giochi.values().stream().mapToInt(Gioco::getIdGioco).summaryStatistics();
+        System.out.println(stat);
     }
 }
