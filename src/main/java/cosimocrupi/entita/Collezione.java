@@ -2,10 +2,8 @@ package cosimocrupi.entita;
 
 import cosimocrupi.exception.ExceptionIdSame;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Scanner;
+import java.util.*;
+import java.util.stream.Collectors;
 
 public class Collezione {
 
@@ -144,7 +142,12 @@ public class Collezione {
                 aggiornamentoElmento(Id);
             }
         }while (ris!=0);
-
+    }
+    public void statistica (){
+        OptionalInt prezzoalto= giochi.values().stream().mapToInt(Gioco::getPrezzo).max();
+        System.out.println(prezzoalto);
+        double mediaPrezzi = giochi.values().stream().collect(Collectors.averagingInt(Gioco::getPrezzo));
+        System.out.println("La media dei prezzi è "+mediaPrezzi);
 
     }
 }
