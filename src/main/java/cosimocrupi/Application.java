@@ -1,9 +1,6 @@
 package cosimocrupi;
 
 import cosimocrupi.entita.Collezione;
-import cosimocrupi.entita.Genere;
-import cosimocrupi.entita.GiocoTavola;
-import cosimocrupi.entita.Videogioco;
 import cosimocrupi.exception.ExceptiionToonumber;
 
 import java.util.Scanner;
@@ -26,12 +23,12 @@ public class Application {
                     case 2:
                         System.out.println("Che Id vorresti cercare?");
                         int idRicera=Integer.parseInt(scanner.nextLine());
-                        collezione.IdRicera(idRicera);
+                        System.out.println(collezione.IdRicera(idRicera));
                         break;
                     case 3:
                         System.out.println("Inserisci un gioco entro dei numeri di giocatori");
                         int numGioca=Integer.parseInt(scanner.nextLine());
-                        collezione.giocatoriRicerca(numGioca);
+                        System.out.println(collezione.giocatoriRicerca(numGioca));
                         break;
                     case 4:
                         System.out.println("Quale gioco vuoi eliminare? Inserisci l'Id");

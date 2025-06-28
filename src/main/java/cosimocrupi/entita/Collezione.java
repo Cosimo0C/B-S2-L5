@@ -108,10 +108,10 @@ public class Collezione {
         return giochi.get(Id);
     }
     public List<Gioco> prezzoRicerca(int prezzo){
-        return giochi.values().stream().filter(gioco -> gioco.prezzo< prezzo).toList();
+        return giochi.values().stream().filter(gioco -> gioco.prezzo < prezzo).toList();
     }
     public List<GiocoTavola> giocatoriRicerca(int numero){
-        return giochiT.stream().filter(gioco -> gioco.giocatori==numero).toList();
+        return giochiT.stream().filter(gioco -> gioco.giocatori<numero).toList();
     }
     public void eliminaId(int Id){
         giochi.remove(Id);
